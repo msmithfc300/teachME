@@ -1,79 +1,219 @@
+
+
 :root {
     --primary-color: #F2EFEA;
     --secondary-color: #01172F;
     --complement: #FC7753;
 }
 
+h1 {
+    color: var(--secondary-color);
+}
 
+h2 {
+    color: var(--secondary-color);
+}
+
+.navText {
+    color: var(--primary-color);
+}
+
+.bodyText {
+    color: var(--secondary-color);
+}
+
+.placeholder {
+
+    background-color: var(--primary-color);
+    border-color: var(--secondary-color);
+    border-style: solid;
+    border-radius: 0.5rem;
+        height: 2rem;
+        margin-top: 1rem;
+        font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    width: 80%;
+
+    }
 
 body {
-    background-color: var(--primary-color);
-    font-family: 'OpenSans', sans-serif;
-}
+        background-color: var(--primary-color);
+        font-family: Verdana, sans-serif;
+        margin:auto;
+    }
 
-.container {
-    margin-top: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
+a {
+        text-decoration: none;
+    }
 
-.grid-child-form {
-    margin-top: 2rem;
-}
+.btn {
+        background-color: var(--complement);
+        color: var(--primary-color);
+        border: none;
+        border-radius: 25px;
+        padding: 8px 15px;
+        text-align: center;
+        &:hover {
+            background-color: var(--secondary-color);
+        }
+        &:active {
+            background-color: var(--secondary-color);
+        }
 
-img {
-    height: 400px;
-}
+    }
 
-.speech-bubble{--arrow-w:0.5em;--arrow-h:1em;--bubble-corners:0;--w:12em;--border-size:3px;--text-color:black;--bubble-color:white;--border-color:black}.speech-bubble{text-align:center;font-family:cursive;font-size:20px;font-weight:700;color:var(--text-color);background:var(--bubble-color);padding:1em;position:relative;border-radius:var(--bubble-corners);max-width:var(--w);box-shadow:0 0 0 var(--border-size) var(--border-color)}.speech-bubble.round{--bubble-corners:1em}.speech-bubble.circle{--bubble-corners:100%;padding:2em}.speech-bubble:before,.speech-bubble:after{content:"";position:absolute;bottom:calc(-1 * var(--arrow-h) * 2 + 0.5px);left:50%;border-style:solid;border-width:var(--arrow-h) var(--arrow-w);border-color:var(--bubble-color) transparent transparent}.speech-bubble:before{border-width:calc(var(--arrow-h) + var(--border-size)) calc(var(--arrow-w) + var(--border-size));border-color:var(--border-color) transparent transparent;bottom:calc(-1 * var(--arrow-h) * 2 - 2.5*var(--border-size));left:calc(50% - var(--border-size))}.speech-bubble.t:after{border-color:transparent transparent var(--bubble-color);bottom:auto;top:calc(-1 * var(--arrow-h) * 2 + 0.5px)}.speech-bubble.t:before{border-width:calc(var(--arrow-h) + var(--border-size)) calc(var(--arrow-w) + var(--border-size));border-color:transparent transparent var(--border-color);bottom:auto;top:calc(-1 * var(--arrow-h) * 2 - 2.5*var(--border-size))}.speech-bubble.l:after{border-color:transparent var(--bubble-color) transparent transparent;bottom:auto;border-width:var(--arrow-w) var(--arrow-h);top:calc(50% - var(--arrow-w));left:calc(-1 * var(--arrow-h) * 2 + 0.5px)}.speech-bubble.l:before{border-width:calc(var(--arrow-w) + var(--border-size)) calc(var(--arrow-h) + var(--border-size));border-color:transparent var(--border-color) transparent transparent;bottom:auto;top:calc(50% - var(--arrow-w) - var(--border-size));left:calc(-1 * var(--arrow-h) * 2 - 2.5*var(--border-size))}.speech-bubble.r:after{border-color:transparent transparent transparent var(--bubble-color);bottom:auto;left:auto;border-width:var(--arrow-w) var(--arrow-h);top:calc(50% - var(--arrow-w));right:calc(-1 * var(--arrow-h) * 2 + 0.5px)}.speech-bubble.r:before{border-width:calc(var(--arrow-w) + var(--border-size)) calc(var(--arrow-h) + var(--border-size));border-color:transparent transparent transparent var(--border-color);bottom:auto;left:auto;top:calc(50% - var(--arrow-w) - var(--border-size));right:calc(-1 * var(--arrow-h) * 2 - 2.5*var(--border-size))}.speech-bubble.pop{animation-name:pop;animation-duration:.5s;animation-timing-function:cubic-bezier(.755,.05,.855,.06)}.speech-bubble.float{animation-name:float-up;animation-duration:2s;animation-iteration-count:infinite;animation-timing-function:ease}.speech-bubble.r.float{animation-name:float-left}.speech-bubble.l.float{animation-name:float-right}.speech-bubble.t.float{animation-name:float-down}@keyframes pop{0%{transform:scale(.8)}80%{transform:scale(1.1)}90%{transform:scale(.9)}100%{transform:scale(1)}}@keyframes float-up{0%{transform:translateY(0)}50%{transform:translateY(calc(-1 * var(--arrow-h)))}}@keyframes float-left{0%{transform:translateX(0)}50%{transform:translateX(calc(-1 * var(--arrow-h)))}}@keyframes float-right{0%{transform:translateX(0)}50%{transform:translateX(var(--arrow-h))}}@keyframes float-down{0%{transform:translateY(0)}50%{transform:translateY(var(--arrow-h))}}
+    .grid-container {
+        margin: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 
-.speech-bubble{
-    --arrow-w:0.5em;
-    --arrow-h:1em;
-    --bubble-corners:0;
-    --w:12em;
-    --border-size:3px;
-    --text-color:black;
-    --bubble-color:white;
-    --border-color:black;
-}
 
-.topnav {
-    background-color: var(--secondary-color);
-    overflow: hidden;
-}
+    .grid-child-form {
+        margin-top: 2rem;
+    }
 
-/* Style the links inside the navigation bar */
-.topnav a {
-    float: left;
-    color: var(--primary-color);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-}
-
-@media screen and (max-width: 768px) {
     img {
-        height: 200px;
+        height: 400px;
     }
 
-    .container {
-        grid-template-columns: 1fr;
+.label {
+    border: none;
+    color: var(--secondary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+    .speech-bubble{--arrow-w:0.5em;--arrow-h:1em;--bubble-corners:0;--w:12em;--border-size:3px;--text-color:black;--bubble-color:white;--border-color:black}.speech-bubble{text-align:center;font-family:cursive;font-size:20px;font-weight:700;color:var(--text-color);background:var(--bubble-color);padding:1em;position:relative;border-radius:var(--bubble-corners);max-width:var(--w);box-shadow:0 0 0 var(--border-size) var(--border-color)}.speech-bubble.round{--bubble-corners:1em}.speech-bubble.circle{--bubble-corners:100%;padding:2em}.speech-bubble:before,.speech-bubble:after{content:"";position:absolute;bottom:calc(-1 * var(--arrow-h) * 2 + 0.5px);left:50%;border-style:solid;border-width:var(--arrow-h) var(--arrow-w);border-color:var(--bubble-color) transparent transparent}.speech-bubble:before{border-width:calc(var(--arrow-h) + var(--border-size)) calc(var(--arrow-w) + var(--border-size));border-color:var(--border-color) transparent transparent;bottom:calc(-1 * var(--arrow-h) * 2 - 2.5*var(--border-size));left:calc(50% - var(--border-size))}.speech-bubble.t:after{border-color:transparent transparent var(--bubble-color);bottom:auto;top:calc(-1 * var(--arrow-h) * 2 + 0.5px)}.speech-bubble.t:before{border-width:calc(var(--arrow-h) + var(--border-size)) calc(var(--arrow-w) + var(--border-size));border-color:transparent transparent var(--border-color);bottom:auto;top:calc(-1 * var(--arrow-h) * 2 - 2.5*var(--border-size))}.speech-bubble.l:after{border-color:transparent var(--bubble-color) transparent transparent;bottom:auto;border-width:var(--arrow-w) var(--arrow-h);top:calc(50% - var(--arrow-w));left:calc(-1 * var(--arrow-h) * 2 + 0.5px)}.speech-bubble.l:before{border-width:calc(var(--arrow-w) + var(--border-size)) calc(var(--arrow-h) + var(--border-size));border-color:transparent var(--border-color) transparent transparent;bottom:auto;top:calc(50% - var(--arrow-w) - var(--border-size));left:calc(-1 * var(--arrow-h) * 2 - 2.5*var(--border-size))}.speech-bubble.r:after{border-color:transparent transparent transparent var(--bubble-color);bottom:auto;left:auto;border-width:var(--arrow-w) var(--arrow-h);top:calc(50% - var(--arrow-w));right:calc(-1 * var(--arrow-h) * 2 + 0.5px)}.speech-bubble.r:before{border-width:calc(var(--arrow-w) + var(--border-size)) calc(var(--arrow-h) + var(--border-size));border-color:transparent transparent transparent var(--border-color);bottom:auto;left:auto;top:calc(50% - var(--arrow-w) - var(--border-size));right:calc(-1 * var(--arrow-h) * 2 - 2.5*var(--border-size))}.speech-bubble.pop{animation-name:pop;animation-duration:.5s;animation-timing-function:cubic-bezier(.755,.05,.855,.06)}.speech-bubble.float{animation-name:float-up;animation-duration:2s;animation-iteration-count:infinite;animation-timing-function:ease}.speech-bubble.r.float{animation-name:float-left}.speech-bubble.l.float{animation-name:float-right}.speech-bubble.t.float{animation-name:float-down}@keyframes pop{0%{transform:scale(.8)}80%{transform:scale(1.1)}90%{transform:scale(.9)}100%{transform:scale(1)}}@keyframes float-up{0%{transform:translateY(0)}50%{transform:translateY(calc(-1 * var(--arrow-h)))}}@keyframes float-left{0%{transform:translateX(0)}50%{transform:translateX(calc(-1 * var(--arrow-h)))}}@keyframes float-right{0%{transform:translateX(0)}50%{transform:translateX(var(--arrow-h))}}@keyframes float-down{0%{transform:translateY(0)}50%{transform:translateY(var(--arrow-h))}}
+
+    .speech-bubble{
+        --arrow-w:0.5em;
+        --arrow-h:1em;
+        --bubble-corners:0;
+        --w:6em;
+        --border-size:3px;
+        --text-color:var(--secondary-color);
+        --bubble-color:var(--primary-color);
+        --border-color:var(--secondary-color);
+        --font-family: sans-serif;
+        --font-size: 1.2rem;
+    }
+
+    .topnav {
+        background-color: var(--secondary-color);
+        overflow: hidden;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: left;
+        color: var(--primary-color);
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+    }
+
+.radio-container {
+    border: none;
+    color: var(--secondary-color);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+
+}
+
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+label[for='registration_form_roles_0'] {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    border-style: solid;
+    border-radius: 0.5rem;
+    padding: 0.6rem;
+    margin-top: 1.5rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    &:hover {
+        color: var(--primary-color);
+        background-color: var(--secondary-color);
+    }
+    &:active {
+        color: var(--primary-color);
+        background-color: var(--secondary-color);
     }
 }
+
+
+label[for='registration_form_roles_1'] {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    border-style: solid;
+    border-radius: 0.5rem;
+    padding: 0.6rem;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    &:hover {
+        color: var(--primary-color);
+        background-color: var(--secondary-color);
+    }
+    &:active {
+        color: var(--primary-color);
+        background-color: var(--secondary-color);
+    }
+}
+
+.roleButton {
+    display: none;
+}
+
+.readMe {
+    border-color: var(--secondary-color);
+    border-style: solid;
+    border-radius: 0.8rem;
+    padding: 1rem;
+
+}
+
+.cartoon {
+    margin-left: 6rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+    @media screen and (max-width: 768px) {
+        img {
+            height: 200px;
+        }
+
+        .grid-container {
+            grid-template-columns: 1fr;
+        }
+
+        .btn {
+            width: 80%;
+        }
+    }
+
 
 
 

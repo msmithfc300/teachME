@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quizzes{% endblock %}
+
+{% block body %}
+
+{% for quiz in quizzes %}
+    {{ quiz.name }}
+
+    <a href="{{ path('app_subject_quiz', { 'id': subject.id,'quiz_id': quiz.id}) }}">take the quiz !</a>
+
+
+{%  endfor %}
+{% endblock %}

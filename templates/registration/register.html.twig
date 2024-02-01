@@ -3,17 +3,72 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
-
     {{ form_errors(registrationForm) }}
-
+<div class="grid-container">
+    <div class="grid-child-image">
+        <h1>Welcome to Teach Me!</h1>
+            <img src="{{ asset('images/tresbIEN.png') }}" alt="prof"/>
+        </div>
+    <div class="grid-child-form">
+<h2>New here? Sign up!</h2>
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+        {{ form_label(registrationForm.roles, 'I am a..', {
+            label_attr: { class: 'radio-container' }
+        }) }}
+
+        {{ form_widget(registrationForm.roles, {
+            attr: { placeholder: '', class: 'radio-container input' }
+        }) }}
+        {{ form_label(registrationForm.username, "Username", {
+            label_attr: { class: 'label' }
+        }) }}
+        {{ form_row(registrationForm.username, {
+            attr: { placeholder: "", class: 'placeholder' }
+        }) }}
+        {{ form_label(registrationForm.email, "Email", {
+            label_attr: { class: 'label' }
+        }) }}
+        {{ form_row(registrationForm.email, {
+            attr: { placeholder: "", class: 'placeholder' }
+        }) }}
+        {{ form_label(registrationForm.plainPassword.first, 'Password', {
+            label_attr: { class: 'label' }
+        }) }}
+        {{ form_row(registrationForm.plainPassword.first, {
+            attr: { placeholder: '', class: 'placeholder' }
+        }) }}
+        {{ form_label(registrationForm.plainPassword.second, 'Repeat password', {
+            label_attr: { class: 'label' }
+        }) }}
+        {{ form_row(registrationForm.plainPassword.second, {
+            attr: { placeholder: '', class: 'placeholder' }
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn">Let's go!</button>
     {{ form_end(registrationForm) }}
+        <h2> Already have an account? </h2>
+        <a class="btn" href="{{ path('app_login') }}">
+            Login
+        </a>
+    </div>
+
+    {%  block javascript  %}
+    <script>
+
+
+        document.querySelector("label[for='registration_form_roles_0']").addEventListener("click", function(){
+        document.querySelector("label[for='registration_form_roles_0']").innerText = "super student"
+        document.querySelector("label[for='registration_form_roles_1']").classList.add("roleButton")
+    });
+
+        document.querySelector("label[for='registration_form_roles_1']").addEventListener("click", function(){
+        document.querySelector("label[for='registration_form_roles_1']").innerText = "lovely teacher"
+        document.querySelector("label[for='registration_form_roles_0']").classList.add("roleButton")
+    });
+
+
+    </script>
+    {% endblock %}
+
 {% endblock %}

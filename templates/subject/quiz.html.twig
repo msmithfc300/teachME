@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quizzes{% endblock %}
+
+{% block body %}
+
+
+        {{ quiz.name }}
+    {% for question in quiz.questions %}
+    {{ question.question }}
+
+{%  endfor %}
+{% endblock %}

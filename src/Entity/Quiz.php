@@ -24,8 +24,11 @@ class Quiz
     #[ORM\Column(length: 255)]
     private ?string $level = null;
 
-    #[ORM\OneToMany(mappedBy: 'quiz', targetEntity: Question::class)]
+    #[ORM\OneToMany(mappedBy: 'quiz', targetEntity: Question::class,cascade: ["remove", "persist"])]
     private Collection $questions;
+
+    #[ORM\ManyToOne(inversedBy: 'quiz')]
+    private ?Subject $subjectFK = null;
 
     public function __construct()
     {
@@ -99,6 +102,18 @@ class Quiz
                 $question->setQuiz(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSubjectFK(): ?Subject
+    {
+        return $this->subjectFK;
+    }
+
+    public function setSubjectFK(?Subject $subjectFK): static
+    {
+        $this->subjectFK = $subjectFK;
 
         return $this;
     }
