@@ -9,10 +9,17 @@
                   href="https://fonts.googleapis.com/css?family=OpenSans">
 
             <div class="topnav">
-                {% if app.user is defined and app.user is not null %}
-                <p class="navText"> Hi {{ app.user.username }} ! </p>
-                {%  endif %}
-                <a href="#news">Home</a>
+                <a href="{{ path('app_home') }}">Home</a>
+                <div class="dropdown">
+                    {% if app.user is defined and app.user is not null %}
+                    <button class="dropbtn">{{ app.user.username }}
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="{{ path('app_subject_index') }}">Subjects</a>
+                        <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                    {%  endif %}
+                </div>
             </div>
         {% endblock %}
 
@@ -21,6 +28,9 @@
         {% endblock %}
     </head>
     <body>
+    <footer>
+
+    </footer>
         {% block body %}{% endblock %}
     </body>
 </html>

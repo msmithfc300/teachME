@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Quiz;
+use App\Entity\StudentAnswer;
 use App\Entity\Subject;
+use App\Form\StudentAnswerType;
 use App\Form\SubjectType;
 use App\Repository\QuestionRepository;
 use App\Repository\QuizRepository;
@@ -109,9 +111,17 @@ class SubjectController extends AbstractController
         QuestionRepository $questionRepo
     ): Response {
         $questions = $questionRepo->findBy(['quiz' => $quiz]);
+        $studentAnswer = new StudentAnswer();
+        $saForm = $this->createForm(StudentAnswerType::class, $studentAnswer);
+        $saForm->handleRequest($request);
+        if ($saForm->isSubmitted()  && $saForm->isValid()) {
+            $entityManager->persist($studentAnswer);
+        }
         return $this->render('subject/quiz.html.twig', [
             'questions' => $questions,
-            'quiz' => $quiz]);
+            'quiz' => $quiz,
+            'studentAnswer' => $studentAnswer,
+            'saForm' => $saForm]);
 
     }
 
