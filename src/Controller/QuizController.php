@@ -29,29 +29,24 @@ class QuizController extends AbstractController
     {
         $quiz = new Quiz();
         $question = new Question();
-        $question->setQuiz($quiz);
+
         $form = $this->createForm(QuizType::class, $quiz);
         $questionForm = $this->createForm(QuestionType::class, $question);
+
         $form->handleRequest($request);
         $questionForm->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($quiz);
-
+            $entityManager->flush();
         }
 
-        if ($questionForm->isSubmitted() && $questionForm->isValid()) {
-            $question->setQuiz($quiz);
-            $entityManager->persist($question);
-
-        }
-        $entityManager->flush();
 
         return $this->render('quiz/new.html.twig', [
             'quiz' => $quiz,
             'form' => $form,
-            'questionForm' => $questionForm,
-            'question' => $question
+
+
         ]);
     }
 

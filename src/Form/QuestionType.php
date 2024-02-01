@@ -18,7 +18,7 @@ class QuestionType extends AbstractType
             ->add('answer')
             ->add('quiz', EntityType::class, [
                 'class' => Quiz::class,
-'choice_label' => 'id',
+                'choice_label' => 'id',
             ])
         ;
     }

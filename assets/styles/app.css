@@ -194,6 +194,13 @@ label[for='registration_form_roles_1'] {
 
 }
 
+.question {
+    border-color: var(--complement);
+    border-style: solid;
+    border-radius: 0.8rem;
+    padding: 1rem;
+}
+
 .cartoon {
     margin-left: 6rem;
     margin-top: 2rem;

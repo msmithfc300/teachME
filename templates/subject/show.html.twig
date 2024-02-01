@@ -3,7 +3,34 @@
 {% block title %}Subject{% endblock %}
 
 {% block body %}
-    <h1>Subject</h1>
+    {%  extends 'base.html.twig' %}
+
+{% block title %}Subject{% endblock %}
+
+{% block body %}
+
+<div class="grid-container">
+    <div class="grid-child-image">
+        <h1> {{ subject.name}} </h1>
+        <div  class="grid-container">
+            <img src="{{ asset('images/prof_me.png') }}" alt="prof"/>
+            <div class="speech-bubble round l pop">
+                <h4>lisez le texte et répondez aux questions  </h4>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="readMe">
+            <p class="bodyText">
+                Les gaz à effet de serre sont des gaz présents dans l'atmosphère qui agissent comme une couverture autour de la Terre, piégeant la chaleur qui rayonne
+                de la surface de la Terre et l'empêchant de s'échapper dans l'espace. </p>
+        </div>
+        <img class="cartoon" src="{{ asset('images/working.png') }}" alt="child thinking"/>
+        <div class="readMe">
+            <p class="bodyText"> C'est ce que l'on appelle l'effet de serre, et c'est ce qui permet à la Terre de rester suffisamment chaude pour permettre la vie.
+                Sans les gaz à effet de serre, la Terre serait trop froide la nuit pour que les plantes puissent pousser ou que les animaux puissent survivre.</p>
+        </div>
+
 
     <table class="table">
         <tbody>

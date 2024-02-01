@@ -21,9 +21,9 @@ class QuizType extends AbstractType
                 'class' => Subject::class,
                 'choice_label' => 'name',
                 'attr' => [
-                    'style' => 'display: none;', // Cela masquera le champ dans le formulaire
+
                 ],
-                'label' => false, // Cela masquera le label du champ dans le formulaire
+                'label' => false,
             ])
         ;
         ;

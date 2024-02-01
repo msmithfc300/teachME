@@ -26,10 +26,10 @@ class QuestionController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $question = new Question();
-        $questionForm = $this->createForm(QuestionType::class, $question);
-        $questionForm->handleRequest($request);
+        $form = $this->createForm(QuestionType::class, $question);
+        $form->handleRequest($request);
 
-        if ($questionForm->isSubmitted() && $questionForm->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($question);
             $entityManager->flush();
 
@@ -38,7 +38,7 @@ class QuestionController extends AbstractController
 
         return $this->render('question/new.html.twig', [
             'question' => $question,
-            'questionForm' => $questionForm,
+            'form' => $form,
         ]);
     }
 
