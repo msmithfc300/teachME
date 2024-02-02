@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+    <div class="grid-container">
+        <div class="grid-child-image">
+            <h1>Welcome back to Teach Me !</h1>
+            <img  src="{{ asset('images/girlWriting.png') }}" alt="girl writing"/>
+        </div>
+        <div class="grid-child-form">
+            <h2>Sign in </h2>
+    <label for="inputEmail" class="label">Email</label>
+    <input type="email" class="placeholder" value="{{ last_username }}" name="email" id="inputEmail" autocomplete="email" required autofocus>
+    <label for="inputPassword" class="label">Password</label>
+    <input type="password" name="password" id="inputPassword" class="placeholder" autocomplete="current-password" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    <button class="btn" type="submit">
+        Sign in
+    </button>
+</form>
+    <h2> Don't have an account yet? </h2>
+    <a class="btn" href="{{ path('app_register') }}">
+        Sign up!
+    </a>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Subject{% endblock %}
+
+{% block body %}
+
+
+<div class="grid-container">
+    <div class="grid-child-image">
+        <h1> {{ subject.name}} </h1>
+            <img src="{{ asset('images/chemist.png') }}" alt="child doing experiments"/>
+        </div>
+<div>
+<div class="btns">
+<a class="btn" href="{{ path('app_subject_quizzes', {'id': subject.id}) }}">view quizzes</a>
+</div>
+<div class="btns">
+    <a class="btn" href="{{ path('app_subject_index') }}">back to list</a>
+</div>
+    {% if is_granted('ROLE_TEACHER') %}
+    <div class="btns">
+    <a class="edit" href="{{ path('app_subject_edit', {'id': subject.id}) }}">edit</a>
+    </div>
+<div>
+    {{ include('subject/_delete_form.html.twig') }}
+</div>
+    {% endif %}
+</div>
+{% endblock %}

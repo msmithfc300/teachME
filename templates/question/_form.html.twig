@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+{{ form_label(form.question, "Question", {
+    label_attr: { class: 'label' }
+}) }}
+        {{ form_row(form.question, {
+            attr: { placeholder: "", class: 'placeholder' }
+        }) }}
+{{ form_label(form.answer, "Answer", {
+    label_attr: { class: 'label' }
+}) }}
+        {{ form_row(form.answer, {
+            attr: { placeholder: "", class: 'placeholder' }
+        }) }}
+    {{ form_widget(form) }}
+   <button class="edit">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

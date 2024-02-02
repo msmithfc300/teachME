@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quiz index{% endblock %}
+
+{% block body %}
+    <h1>Quiz index</h1>
+
+    <table class="table">
+
+        {% for quiz in quizzes %}
+            <ul>
+                <li>{{ quiz.subject }}</li>
+                <li>{{ quiz.name }}</li>
+                <li>{{ quiz.level }}</li>
+                <div class="btns">
+                    <a class="btn" href="{{ path('app_quiz_show', {'id': quiz.id}) }}">show</a>
+                </div>
+                    {% if is_granted('ROLE_TEACHER') %}
+                <div class="btns">
+                    <a class="edit" href="{{ path('app_quiz_edit', {'id': quiz.id}) }}">edit</a>
+                </div>
+                    {%  endif %}
+            </ul>
+
+        {% else %}
+                <h1>no records found</h1>
+
+        {% endfor %}
+
+        {% if is_granted('ROLE_TEACHER') %}
+        <div class="btns">
+    <a class="edit" href="{{ path('app_quiz_new') }}">Create new</a>
+        </div>
+        {% endif %}
+{% endblock %}

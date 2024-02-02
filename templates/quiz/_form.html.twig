@@ -1,0 +1,25 @@
+{{ form_start(form) }}
+    {{ form_label(form.name, "Title", {
+        label_attr: { class: 'label' }
+    }) }}
+        {{ form_row(form.name, {
+            attr: { placeholder: "", class: 'placeholder' }
+        }) }}
+{{ form_label(form.level, "Level", {
+    label_attr: { class: 'label' }
+}) }}
+        {{ form_row(form.level, {
+            attr: { placeholder: "", class: 'placeholder' }
+        }) }}
+{{ form_label(form.subject_fk, "Subject", {
+    label_attr: { class: 'label' }
+}) }}
+        {{ form_widget(form.subject_fk, {
+            attr: { placeholder: "", class: 'placeholder' }
+        }) }}
+   <button class="edit">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+
+
+
