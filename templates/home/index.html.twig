@@ -14,15 +14,39 @@
     </div>
     <div class="grid-child-form">
         {% if app.user is defined and app.user is not null %}
+        {% if is_granted('ROLE_TEACHER') %}
+        <h2>Create some engaging content !</h2>
+            <div class="btns">
+            <a class="edit" href="{{ path('app_subject_index') }}">
+                View and edit subjects
+            </a>
+            </div>
+    <div class="btns">
+            <a class="edit" href="{{ path('app_quiz_index') }}">
+                View and edit quizzes
+            </a>
+            </div>
+            {% else %}
             <h2>Choose a subject to start learning</h2>
             <a class="btn" href="{{ path('app_subject_index') }}">
                 View subjects
             </a>
+                {% endif %}
             {%  else %}
         <h2>New here? Sign up!</h2>
+                <img  src="{{ asset('images/backpackBoy.png') }}" alt="boy wearing backpack"/>
+                <div class="btns">
         <a class="btn" href="{{ path('app_register') }}">
             Sign up!
         </a>
+    </div>
+                <h2>Already have an account?</h2>
+                <img  src="{{ asset('images/girlWriting.png') }}" alt="girl writing"/>
+                <div class="btns">
+                <a class="btn" href="{{ path('app_login') }}">
+                    Log in!
+                </a>
+    </div>
         {% endif %}
 
 {% endblock %}
