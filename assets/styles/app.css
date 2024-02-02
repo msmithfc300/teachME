@@ -42,6 +42,29 @@ body {
         margin:auto;
     }
 
+.btns {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+
+}
+
+.edit {     background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 25px;
+    padding: 8px 15px;
+    text-align: center;
+    &:hover {
+        background-color: var(--complement);
+    }
+    &:active {
+        background-color: var(--complement);
+    }
+
+}
+
+
+
 a {
         text-decoration: none;
     }
@@ -297,6 +320,10 @@ h3 {
         }
 
         .btn {
+            width: 80%;
+        }
+
+        .edit {
             width: 80%;
         }
     }
