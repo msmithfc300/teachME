@@ -14,16 +14,19 @@ class QuizType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('level')
-            ->add('subject')
+            ->add('name',null, ['label' => false])
+            ->add('level',  null, ['label' => false])
+            ->add('subject', null, ['label' => false, 'attr' => [
+                'style' => 'display: none'
+
+            ],])
             ->add('subject_fk', EntityType::class, [
                 'class' => Subject::class,
                 'choice_label' => 'name',
-                 'attr' => [
-                             'style' => 'display: none'
+             //    'attr' => [
+                //             'style' => 'display: none'
 
-                ],
+             //   ],
                 'label' => false,
             ])
         ;
