@@ -16,12 +16,12 @@ class QuestionType extends AbstractType
         $builder
             ->add('question')
             ->add('answer')
-            ->add('quiz', EntityType::class, [
-                'class' => Quiz::class,
-                'choice_label' => 'id', 'attr' => [
-                    'style' => 'display: none'
-                ],
-            ])
+           // ->add('quiz', EntityType::class, [
+           //     'class' => Quiz::class,
+           //     'choice_label' => 'id', 'attr' => [
+           //         'style' => 'display: none'
+           //     ],
+          //  ])
         ;
     }
 

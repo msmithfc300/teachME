@@ -17,9 +17,12 @@ class StudentAnswerType extends AbstractType
     {
         $builder
             ->add('answer', null, ['label' => false])
-            ->add('question', EntityType::class, [
+            ->add('question', EntityType::class, ['label' => false,
                 'class' => Question::class,
-'choice_label' => 'id',
+'choice_label' => 'id', 'attr' => [
+                    'style' => 'display: none'
+
+                ],
             ])
         ;
     }

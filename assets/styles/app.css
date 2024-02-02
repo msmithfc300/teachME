@@ -288,6 +288,14 @@ label[for='registration_form_roles_1'] {
     padding: 1rem;
 }
 
+.answer {
+    margin-top: 1.5rem;
+    border-color: var(--secondary-color);
+    border-style: solid;
+    border-radius: 0.8rem;
+    padding: 1rem;
+}
+
 .instruction {
     margin: 1rem;
     border-color: var(--complement);

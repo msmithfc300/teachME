@@ -20,7 +20,8 @@ class QuizType extends AbstractType
             ->add('subject_fk', EntityType::class, [
                 'class' => Subject::class,
                 'choice_label' => 'name',
-                'attr' => [
+                 'attr' => [
+                             'style' => 'display: none'
 
                 ],
                 'label' => false,
