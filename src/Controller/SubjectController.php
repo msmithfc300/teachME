@@ -108,7 +108,8 @@ class SubjectController extends AbstractController
         Request $request,
         EntityManagerInterface $entityManager,
         SubjectRepository $subjectRepository,
-        QuestionRepository $questionRepo
+        QuestionRepository $questionRepo,
+
     ): Response {
         $questions = $questionRepo->findBy(['quiz' => $quiz]);
         $studentAnswer = new StudentAnswer();
@@ -117,11 +118,26 @@ class SubjectController extends AbstractController
         if ($saForm->isSubmitted()  && $saForm->isValid()) {
             $entityManager->persist($studentAnswer);
         }
+        $entityManager->flush();
+
+        $question = $questionRepo->findOneBy(['quiz' => $quiz]);
+        $correctAnswer = $question->getAnswer();
+        $stAnswer =  $saForm->get('answer')->getData();
+        if ($stAnswer === $correctAnswer) {
+            $this->addFlash('correct', "Correct !");
+        }
+
+        else {
+            $this->addFlash('oops', "Oups ! ");
+        }
         return $this->render('subject/quiz.html.twig', [
             'questions' => $questions,
             'quiz' => $quiz,
             'studentAnswer' => $studentAnswer,
-            'saForm' => $saForm]);
+            'question' => $question,
+            'saForm' => $saForm,
+            'correctAnswer' => $correctAnswer,
+            'stAnswer' => $stAnswer]);
 
     }
 

@@ -29,6 +29,18 @@
         <button class="btn"> Submit </button>
         {{ form_end(saForm) }}
     </div>
+    {% for message in app.flashes('correct') %}
+        <div class="correct">
+          {#   {{ message }} #}
+            <img class="cartoon" src="{{ asset('images/tresBien.png') }}" alt="tres bien !"/>
+        </div>
+    {%  endfor %}
+        {% for message in app.flashes('oops') %}
+        <div class="oops">
+          {#   {{ message }} #}
+            <img class="cartoon" src="{{ asset('images/tryAgain.png') }}" alt="try again !"/>
+        </div>
+    {%  endfor %}
     {%  endfor %}
     <div>
 {% endblock %}
