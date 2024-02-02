@@ -70,6 +70,7 @@ a {
     }
 
 .btn {
+
         background-color: var(--complement);
         color: var(--primary-color);
         border: none;
@@ -84,6 +85,7 @@ a {
         }
 
     }
+
 
     .grid-container {
         margin: 2rem;

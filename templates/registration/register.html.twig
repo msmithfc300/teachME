@@ -44,9 +44,13 @@
         {{ form_row(registrationForm.plainPassword.second, {
             attr: { placeholder: '', class: 'placeholder' }
         }) }}
+        {{ form_label(registrationForm.agreeTerms, 'Agree to our secret terms', {
+            label_attr: { class: 'label' }
+        }) }}
         {{ form_row(registrationForm.agreeTerms) }}
-
+<div class="submitBtn">
         <button type="submit" class="btn">Let's go!</button>
+</div>
     {{ form_end(registrationForm) }}
         <h2> Already have an account? </h2>
         <a class="btn" href="{{ path('app_login') }}">

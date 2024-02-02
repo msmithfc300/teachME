@@ -26,7 +26,9 @@
         {{ form_row(saForm.answer, {
             attr: { placeholder: "answer", class: 'placeholder' }
         }) }}
+        <div class="btns">
         <button class="btn"> Submit </button>
+        </div>
         {{ form_end(saForm) }}
     </div>
     {% for message in app.flashes('correct') %}
