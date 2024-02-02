@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -31,6 +33,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $username = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: StudentAnswer::class)]
+    private Collection $studentAnswers;
+
+    public function __construct()
+    {
+        $this->studentAnswers = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -110,6 +120,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUsername(string $username): static
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, StudentAnswer>
+     */
+    public function getStudentAnswers(): Collection
+    {
+        return $this->studentAnswers;
+    }
+
+    public function addStudentAnswer(StudentAnswer $studentAnswer): static
+    {
+        if (!$this->studentAnswers->contains($studentAnswer)) {
+            $this->studentAnswers->add($studentAnswer);
+            $studentAnswer->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStudentAnswer(StudentAnswer $studentAnswer): static
+    {
+        if ($this->studentAnswers->removeElement($studentAnswer)) {
+            // set the owning side to null (unless already changed)
+            if ($studentAnswer->getUser() === $this) {
+                $studentAnswer->setUser(null);
+            }
+        }
 
         return $this;
     }
